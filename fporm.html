@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Styled Contact Form with Filled Inputs</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e8dbf8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    form {
+      background: #5ad309;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(155, 30, 14, 0.12);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d3d8dd;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: #f7f7f7;
+      margin-bottom: 8px;
+      margin-top: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1.8px solid #b9053b;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #18191b;
+      background-color: #e7f0ff; /* light blue fill */
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="password"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #aed421;
+      outline: none;
+      background-color: #eef8f5; /* deeper blue fill on focus */
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    input[type="submit"] {
+      background-color: #0984e3;
+      color: white;
+      padding: 14px 0;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 25px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(9, 132, 227, 0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #74b9ff;
+      box-shadow: 0 8px 22px rgba(116, 185, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <form action="#" method="post" autocomplete="off" style="background-color: #1267a3; padding: 30px; border-radius: 12px;">
+    
+   
+    <h2>Contact Us</h2>
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+    <label for="password">Department</label>
+    <input type="password" id="password" name="password" placeholder="Choose a password" required />
+
+    <label for="password">Roll No</label>
+    <input type="password" id="password" name="password" placeholder="Choose a password" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Choose a password" required />
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890" pattern="[+0-9\s]+" />
+
+  
+    <label for="subject">Subject</label>
+    <select id="subject" name="subject" required>
+      <option value="" disabled selected>Select a subject</option>
+      <option value="support">BCE-II</option>
+      <option value="sales">DWM</option>
+      <option value="feedback">WC</option>
+      <option value="other">AI</option>
+      <option value="other">CN</option>
+      <option value="other">DLOC</option>
+      <option value="other">Cyber Security</option>
+    </select>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+    <input type="submit" value="Send Message" />
+  </form>
+
+</body>
+</html>
