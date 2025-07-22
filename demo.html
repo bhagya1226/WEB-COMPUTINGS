@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript All-in-One Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript All-in-One Demo</h1>
+    <button onclick="runAll()">Run All Examples</button>
+    <pre id="output"></pre>
+
+    <script>
+        function log(msg) {
+            document.getElementById("output").textContent += msg + "\n";
+            console.log(msg);
+        }
+
+        function runAll() {
+            document.getElementById("output").textContent = ""; // Clear previous output
+
+            // 1. Variables
+            let name = "Alice";
+            const age = 30;
+            var isStudent = false;
+            log(`Variables: ${name}, ${age}, ${isStudent}`);
+
+            // 2. Operators
+            let a = 10, b = 3;
+            log(`Addition: ${a + b}`);
+            log(`Multiplication: ${a * b}`);
+            log(`Logical AND: ${a > 5 && b < 5}`);
+
+            // 3. Conditions
+            let score = 85;
+            if (score >= 90) {
+                log("Grade A");
+            } else if (score >= 80) {
+                log("Grade B");
+            } else {
+                log("Grade C");
+            }
+
+            let fruit = "apple";
+            switch (fruit) {
+                case "banana":
+                    log("Banana is yellow");
+                    break;
+                case "apple":
+                    log("Apple is red");
+                    break;
+                default:
+                    log("Unknown fruit");
+            }
+
+            // 4. Loops
+            for (let i = 1; i <= 3; i++) {
+                log("For Loop: " + i);
+            }
+
+            let j = 1;
+            while (j <= 2) {
+                log("While Loop: " + j);
+                j++;
+            }
+
+            [100, 200, 300].forEach(num => log("Array forEach: " + num));
+
+            // 5. Functions
+            function greet(name) {
+                return "Hello, " + name + "!";
+            }
+            log(greet("John"));
+
+            // 6. Events — already handled by the button onclick
+
+            // 7. Classes and Objects
+            class Person {
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+                greet() {
+                    log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+                }
+            }
+            let p1 = new Person("Sam", 28);
+            p1.greet();
+
+            // 8. Error Handling
+            try {
+                throw new Error("Something went wrong!");
+            } catch (err) {
+                log("Caught error: " + err.message);
+            } finally {
+                log("Error handling block done.");
+            }
+
+            // 9. Validations
+            function validateEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+            log("Email valid? " + validateEmail("test@example.com"));
+            log("Email valid? " + validateEmail("notanemail"));
+
+            // 10. Arrays
+            let colors = ["red", "green", "blue"];
+            colors.push("yellow");
+            log("Array: " + colors.join(", "));
+            log("Second color: " + colors[1]);
+
+            // 11. Strings
+            let str = "JavaScript";
+            log("Uppercase: " + str.toUpperCase());
+            log("Includes 'Script': " + str.includes("Script"));
+            log("Substring: " + str.substring(0, 4));
+
+            // 12. Date
+            let now = new Date();
+            log("Current date/time: " + now.toString());
+            log("Year: " + now.getFullYear());
+            log("Month: " + (now.getMonth() + 1));
+            log("Locale Date: " + now.toLocaleDateString());
+        }
+    </script>
+
+</body>
+
+</html>

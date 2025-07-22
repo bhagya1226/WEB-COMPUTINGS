@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS User Form Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    label, input, button { display: block; margin: 10px 0; }
+    #output { margin-top: 20px; padding: 10px; background: #d8d3d3; }
+  </style>
+</head>
+<body>
+
+  <h1>User Info Form</h1>
+
+  <label for="name">Full Name:</label>
+  <input type="text" id="name" placeholder="Enter your full name">
+
+  <label for="name">Mobile Number:</label>
+  <input type="text" id="mn" placeholder="Enter your mobile number">
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" placeholder="Enter your email">
+
+  <label for="name">Roll No:</label>
+  <input type="text" id="rn" placeholder="Enter your roll no">
+
+  <button onclick="submitForm()">Submit</button>
+
+  <div id="output"></div>
+
+  <script>
+    function validateEmail(email) {
+      return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+    }
+
+    function submitForm() {
+      try {
+        let name = document.getElementById("name").value.trim();
+        let mn = document.getElementById("mn").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let rn = document.getElementById("rn").value.trim();
+
+        const output = document.getElementById("output");
+
+        // Clear previous output
+        output.innerHTML = "";
+
+        if (name === "" || email === "") {
+          throw new Error("Please fill in both fields.");
+        }
+
+        if (!validateEmail(email)) {
+          throw new Error("Invalid email format.");
+        }
+
+        // Example usage of array and date
+        const greetings = ["Welcome", "Hello", "Hi"];
+        let greet = greetings[Math.floor(Math.random() * greetings.length)];
+        let now = new Date();
+
+        output.innerHTML = `
+          <p>${greet}, <strong>${name}</strong>!</p>
+          <p>Your email <strong>${email}</strong> is valid.</p>
+          <p>Submitted on: ${now.toLocaleString()}</p>
+        `;
+      } catch (err) {
+        document.getElementById("output").innerHTML = `<p style="color:red;">Error: ${err.message}</p>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
